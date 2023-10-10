@@ -1,17 +1,18 @@
 import './App.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 function App() {
 
   const [inputValue, setInputValue] = useState('');
-  const perDiam = Math.floor(inputValue / 7)
+  const perDiam = Math.floor((inputValue - 125) / 7)
 
   const InputChange = (event) => {
     setInputValue(event.target.value);
   };
 
   return (
-    <div>
+    <div className='App'>
+      <div className='Content'>
     <div>
       <h1>Money Calculator</h1>
     </div>
@@ -23,7 +24,8 @@ function App() {
     className='newChoreInput'
   />
   <button>SUBMIT</button>
-  <p>You can spend {perDiam} per day</p>
+  <p>You can spend £{perDiam} per day, saving £100 a month and not counting rent</p>
+  </div>
   </div>
   );
 }
