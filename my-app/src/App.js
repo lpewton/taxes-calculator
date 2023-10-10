@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 function App() {
 
   const [inputValue, setInputValue] = useState('');
-  const perDiam = Math.floor((inputValue - 125) / 7)
+  const perDiam = Math.floor((inputValue - 350) / 7)
 
   const InputChange = (event) => {
     setInputValue(event.target.value);
@@ -24,7 +24,7 @@ function App() {
     className='newChoreInput'
   />
   <button>SUBMIT</button>
-  <p>You can spend £{perDiam} per day, saving £100 a month and not counting rent</p>
+  <p>You can spend £{perDiam} per day, saving £125 a week, counting £225 rent a month</p>
   </div>
   </div>
   );
