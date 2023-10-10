@@ -1,24 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState, useEffect } from 'react';
 
 function App() {
+
+  const [inputValue, setInputValue] = useState('');
+  const perDiam = Math.floor(inputValue / 7)
+
+  const InputChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    <div>
+      <h1>Money Calculator</h1>
     </div>
+    <input
+    type="text"
+    placeholder="Money Received"
+    value={inputValue}
+    onChange={InputChange}
+    className='newChoreInput'
+  />
+  <button>SUBMIT</button>
+  <p>You can spend {perDiam} per day</p>
+  </div>
   );
 }
 
