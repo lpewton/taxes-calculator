@@ -28,6 +28,10 @@ function App() {
       <h1>Money Calculator</h1>
     </div>
     <div>
+      <button>Weekly</button>
+      <button>Monthly</button>
+    </div>
+    <div>
       <label>Wage/week</label>
     <input
     type="integer"
@@ -54,7 +58,7 @@ function App() {
     onChange={savingsChange}
   />
   </div>
-  <p>You can spend £{perDiam} per day, saving £125 a week</p>
+  <p>You can spend £{perDiam} per day.</p>
   </div>
   </div>
   );
