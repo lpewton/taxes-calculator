@@ -9,3 +9,7 @@
 .Content {
 border: solid gold;
 }
+
+.Selected-period {
+  background-color: green;
+}

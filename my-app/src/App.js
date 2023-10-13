@@ -6,8 +6,17 @@ function App() {
   const [inputValue, setInputValue] = useState('');
   const [rentValue, setrentValue] = useState('');
   const [savingsValue, setsavingsValue] = useState('');
+  const [perDiam, setPerDiam] = useState(0);
 
-  const perDiam = Math.floor((inputValue - savingsValue / 4 - rentValue / 4) / 7)
+  const setWeekly = (event) => {
+    const perDiamValue = Math.floor((inputValue - savingsValue - rentValue) / 7);
+    setPerDiam(perDiamValue);
+  };
+
+  const setMonthly = (event) => {
+    const perDiamValue = Math.floor((inputValue - savingsValue - rentValue) / 30);
+    setPerDiam(perDiamValue);
+  }
 
   const InputChange = (event) => {
     setInputValue(event.target.value);
@@ -28,37 +37,41 @@ function App() {
       <h1>Money Calculator</h1>
     </div>
     <div>
-      <button>Weekly</button>
-      <button>Monthly</button>
+      <button
+        onClick={setWeekly}
+      >Weekly</button>
+      <button
+        onClick={setMonthly}
+      >Monthly</button>
     </div>
     <div>
-      <label>Wage/week</label>
+      <label>Wage</label>
     <input
     type="integer"
-    placeholder="Money Received/week"
+    placeholder="Money Received"
     value={inputValue}
     onChange={InputChange}
   />
   </div>
   <div>
-  <label>Rent/month</label>
+  <label>Rent</label>
   <input
     type="integer"
-    placeholder="Rent/month"
+    placeholder="Rent"
     value={rentValue}
     onChange={rentChange}
   />
   </div>
   <div>
-  <label>Savings/month</label>
+  <label>Savings</label>
   <input
     type="integer"
-    placeholder="Savings/month"
+    placeholder="Savings"
     value={savingsValue}
     onChange={savingsChange}
   />
   </div>
-  <p>You can spend £{perDiam} per day.</p>
+  {perDiam !== 0 && <p>You can spend £{perDiam} per day.</p>}  
   </div>
   </div>
   );
