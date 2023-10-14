@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/taxes-calculator/static/css/main.2eb11cdd.css",
-    "main.js": "/taxes-calculator/static/js/main.22231499.js",
+    "main.css": "/taxes-calculator/static/css/main.66cbcfe7.css",
+    "main.js": "/taxes-calculator/static/js/main.62e848bd.js",
     "static/js/787.28cb0dcd.chunk.js": "/taxes-calculator/static/js/787.28cb0dcd.chunk.js",
     "index.html": "/taxes-calculator/index.html",
-    "main.2eb11cdd.css.map": "/taxes-calculator/static/css/main.2eb11cdd.css.map",
-    "main.22231499.js.map": "/taxes-calculator/static/js/main.22231499.js.map",
+    "main.66cbcfe7.css.map": "/taxes-calculator/static/css/main.66cbcfe7.css.map",
+    "main.62e848bd.js.map": "/taxes-calculator/static/js/main.62e848bd.js.map",
     "787.28cb0dcd.chunk.js.map": "/taxes-calculator/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2eb11cdd.css",
-    "static/js/main.22231499.js"
+    "static/css/main.66cbcfe7.css",
+    "static/js/main.62e848bd.js"
   ]
 }
