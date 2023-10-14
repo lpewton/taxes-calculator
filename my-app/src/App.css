@@ -7,9 +7,29 @@
 }
 
 .Content {
-border: solid gold;
+  border: solid gold;
+}
+
+.Input-div {
+  margin: 2%;
+  margin-bottom: 0%;
+}
+
+label {
+  margin-right: 1%;
+}
+
+.Period-btn {
+  margin: 1%;
+  padding: 1%;
+  border-radius: 35%;
 }
 
 .Period-btn.active {
-  background-color: green;
+  background-color: gold;
+  border-radius: 35%;
+}
+
+.results {
+  margin: 1%;
 }
