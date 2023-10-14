@@ -10,6 +10,6 @@
 border: solid gold;
 }
 
-.Selected-period {
+.Period-btn.active {
   background-color: green;
 }

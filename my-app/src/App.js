@@ -7,15 +7,21 @@ function App() {
   const [rentValue, setrentValue] = useState('');
   const [savingsValue, setsavingsValue] = useState('');
   const [perDiam, setPerDiam] = useState(0);
+  const [isWeekly, setIsWeekly] = useState(true);
+  const [isMonthly, setIsMonthly] = useState(false);
 
   const setWeekly = (event) => {
     const perDiamValue = Math.floor((inputValue - savingsValue - rentValue) / 7);
     setPerDiam(perDiamValue);
+    setIsWeekly(true);
+    setIsMonthly(false);
   };
 
   const setMonthly = (event) => {
     const perDiamValue = Math.floor((inputValue - savingsValue - rentValue) / 30);
     setPerDiam(perDiamValue);
+    setIsWeekly(false);
+    setIsMonthly(true)
   }
 
   const InputChange = (event) => {
@@ -35,14 +41,6 @@ function App() {
       <div className='Content'>
     <div>
       <h1>Money Calculator</h1>
-    </div>
-    <div>
-      <button
-        onClick={setWeekly}
-      >Weekly</button>
-      <button
-        onClick={setMonthly}
-      >Monthly</button>
     </div>
     <div>
       <label>Wage</label>
@@ -71,6 +69,16 @@ function App() {
     onChange={savingsChange}
   />
   </div>
+  <div>
+      <button
+      className={`Period-btn ${isWeekly ? 'active' : ''}`}
+      onClick={setWeekly}
+      >Weekly</button>
+      <button
+      className={`Period-btn ${isMonthly ? 'active' : ''}`}
+      onClick={setMonthly}
+      >Monthly</button>
+    </div>
   {perDiam !== 0 && <p>You can spend £{perDiam} per day.</p>}  
   </div>
   </div>
