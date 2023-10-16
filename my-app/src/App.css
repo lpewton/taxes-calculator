@@ -27,7 +27,25 @@ label {
 
 .Period-btn.active {
   background-color: gold;
+}
+
+.Custom-div {
+  display: flex;
+  border: solid gold;
+  width: 30%;
+}
+
+.Custom-btn {
+  margin: 1%;
   border-radius: 35%;
+}
+
+.Custom-btn.active {
+  background-color: gold;
+}
+
+.Custom-input {
+  width: 5%;
 }
 
 .results {

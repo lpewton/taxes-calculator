@@ -9,19 +9,37 @@ function App() {
   const [perDiam, setPerDiam] = useState(0);
   const [isWeekly, setIsWeekly] = useState(false);
   const [isMonthly, setIsMonthly] = useState(false);
+  const [isCustom, setIsCustom] = useState(false);
+  const [customDays, setCustomDays] = useState('');
 
   const setWeekly = (event) => {
+    if (inputValue || rentValue || savingsValue ) {
     const perDiamValue = Math.floor((inputValue - savingsValue - rentValue) / 7);
     setPerDiam(perDiamValue);
     setIsWeekly(true);
     setIsMonthly(false);
+    setIsCustom(false);
+    }
   };
 
   const setMonthly = (event) => {
+    if (inputValue || rentValue || savingsValue ) {
     const perDiamValue = Math.floor((inputValue - savingsValue - rentValue) / 30);
     setPerDiam(perDiamValue);
     setIsWeekly(false);
-    setIsMonthly(true)
+    setIsMonthly(true);
+    setIsCustom(false);
+  }
+  }
+
+  const setCustom = (event) => {
+    if (customDays) {
+      const perDiamValue = Math.floor((inputValue - savingsValue - rentValue) / customDays);
+      setPerDiam(perDiamValue);
+      setIsWeekly(false);
+      setIsMonthly(false);
+      setIsCustom(true);
+    }
   }
 
   const InputChange = (event) => {
@@ -36,6 +54,10 @@ function App() {
     setsavingsValue(event.target.value);
   };
 
+  const customDaysChange = (event) => {
+    setCustomDays(event.target.value);
+  };
+
   return (
     <div className='App'>
       <div className='Content'>
@@ -45,7 +67,7 @@ function App() {
     <div className='Input-div'>
       <label>Wage</label>
     <input
-    type="integer"
+    type="number"
     placeholder="Money Received"
     value={inputValue}
     onChange={InputChange}
@@ -54,7 +76,7 @@ function App() {
   <div className='Input-div'>
   <label>Rent</label>
   <input
-    type="integer"
+    type="number"
     placeholder="Rent"
     value={rentValue}
     onChange={rentChange}
@@ -63,7 +85,7 @@ function App() {
   <div className='Input-div'>
   <label>Savings</label>
   <input
-    type="integer"
+    type="number"
     placeholder="Savings"
     value={savingsValue}
     onChange={savingsChange}
@@ -78,7 +100,20 @@ function App() {
       className={`Period-btn ${isMonthly ? 'active' : ''}`}
       onClick={setMonthly}
       >Monthly</button>
-    </div>
+      <div className='Custom-div'>
+    <input
+      type="number"
+      className='Custom-input'
+      placeholder=""
+      value={customDays}
+      onChange={customDaysChange}
+  />
+  <button
+      className={`Custom-btn ${isCustom ? 'active' : ''}`}
+      onClick={setCustom}
+      >Set</button>
+  </div>
+  </div>
   {perDiam !== 0 && <p className='Results'>You can spend £{perDiam} per day.</p>}  
   </div>
   </div>
